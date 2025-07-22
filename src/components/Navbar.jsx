@@ -1,8 +1,8 @@
 import { cn } from "@/lib/utils";
-import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import { useEffect, useState } from "react";
 
-const NavItems = [
+const navItems = [
   { name: "Home", href: "#hero" },
   { name: "About", href: "#about" },
   { name: "Skills", href: "#skills" },
@@ -20,21 +20,18 @@ export const Navbar = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
   return (
     <nav
       className={cn(
         "fixed w-full z-40 transition-all duration-300",
-        isScrolled ? "py-3 bg-background/80 backdeio-blur-md shadow-xs" : "py-5"
+        isScrolled ? "py-3 bg-background/80 backdrop-blur-md shadow-xs" : "py-5 bg-background/80 backdrop-blur-md shadow-xs"
       )}
     >
       <div className="container flex items-center justify-between">
         <a
-          className="text-xl fond0bold text-primary flex items-center"
+          className="text-xl font-bold text-primary flex items-center"
           href="#hero"
         >
           <span className="relative z-10">
@@ -42,27 +39,27 @@ export const Navbar = () => {
           </span>
         </a>
 
-        {/* desktop  */}
+        {/* desktop nav */}
         <div className="hidden md:flex space-x-8">
-          {NavItems.map((item, key) => (
+          {navItems.map((item, key) => (
             <a
               key={key}
               href={item.href}
-              className="text-foreground/80 hover:text-primary transition-colors deuration-300"
+              className="text-foreground/80 hover:text-primary transition-colors duration-300"
             >
               {item.name}
             </a>
           ))}
         </div>
 
-        {/* mobile */}
+        {/* mobile nav */}
 
         <button
           onClick={() => setIsMenuOpen((prev) => !prev)}
           className="md:hidden p-2 text-foreground z-50"
-					aria-label = {isMenuOpen ? "Close menu" : "Open menu"}
+          aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
         >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}{" "}
         </button>
 
         <div
@@ -71,15 +68,15 @@ export const Navbar = () => {
             "transition-all duration-300 md:hidden",
             isMenuOpen
               ? "opacity-100 pointer-events-auto"
-              : "opacity-0 pointer-events-none "
+              : "opacity-0 pointer-events-none"
           )}
         >
           <div className="flex flex-col space-y-8 text-xl">
-            {NavItems.map((item, key) => (
+            {navItems.map((item, key) => (
               <a
                 key={key}
                 href={item.href}
-                className="text-foreground/80 hover:text-primary transition-colors deuration-300"
+                className="text-foreground/80 hover:text-primary transition-colors duration-300"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}
