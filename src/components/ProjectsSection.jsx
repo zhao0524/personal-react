@@ -6,11 +6,11 @@ import { ArrowRight, ExternalLink, Github } from "lucide-react";
 const projects = [
   {
     id: 1,
-    title: "Weather predicting app",
+    title: "Amazon-fullstack-clone",
     description:
-      "A weather app that predicts the weather using OpenWeather API.",
-    image: "/projects/placeholder.png",
-    tags: ["Python", "Flask", "OpenWeather API"],
+      "An Amazon-clone web app that replicates core e-commerce features including product listings, shopping cart, and checkout functionality with a responsive user interface.",
+    image: "/projects/amazon-clone-frontpage.png",
+    tags: ["React", "Firebase", "product-API"],
     demoUrl: "#",
     githubUrl: "#",
   },
@@ -111,7 +111,7 @@ export const ProjectsSection = () => {
           <a
             className="cosmic-button w-fit flex items-center mx-auto gap-2"
             href="https://github.com/zhao0524"
-						target = "_blank"
+            target="_blank"
           >
             Check my Github <ArrowRight size={16} />
           </a>
