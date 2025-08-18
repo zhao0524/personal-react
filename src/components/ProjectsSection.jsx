@@ -12,17 +12,17 @@ const projects = [
     image: "/projects/amazon-clone-frontpage.png",
     tags: ["React", "Firebase", "product-API"],
     demoUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/zhao0524/amazon-clone",
   },
   {
     id: 2,
-    title: "Weather predicting app",
+    title: "Motion exercise predictor",
     description:
-      "A weather app that predicts the weather using OpenWeather API.",
-    image: "/projects/placeholder.png",
-    tags: ["React", "API", "SQL"],
+      "Motion Exercise Predictor is a machine learning-powered app that detects your movements through a wearable motion sensor and identifies the exercise you’re performing in real time. It helps track workouts, monitor form, and provide insights for better performance.",
+    image: "/projects/fitness.png",
+    tags: ["Python", "pandas", "numpy"],
     demoUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/zhao0524/fitness-machine-learning",
   },
   {
     id: 3,
