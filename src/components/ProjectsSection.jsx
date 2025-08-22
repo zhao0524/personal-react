@@ -26,11 +26,11 @@ const projects = [
   },
   {
     id: 3,
-    title: "Weather predicting app",
+    title: "Eventfinder",
     description:
-      "A weather app that predicts the weather using OpenWeather API.",
-    image: "/projects/placeholder.png",
-    tags: ["javascript", "html", "spabase"],
+      "EventFinder is a web app that helps users discover local events in real time. It connects people to nearby concerts, festivals, and community activities based on their location and interests. With personalized filters, users can easily stay updated and never miss out on what’s happening around them.",
+    image: "/projects/eventfinder.png",
+    tags: ["Python", "html", "flask"],
     demoUrl: "#",
     githubUrl: "#",
   },
