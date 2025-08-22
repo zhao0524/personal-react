@@ -9,7 +9,7 @@ const projects = [
     title: "Amazon-fullstack-clone",
     description:
       "An Amazon-clone web app that replicates core e-commerce features including product listings, shopping cart, and checkout functionality with a responsive user interface.",
-    image: "/projects/amazon-clone-frontpage.png",
+    image: "projects/amazon-clone-frontpage.png",
     tags: ["React", "Firebase", "product-API"],
     demoUrl: "#",
     githubUrl: "https://github.com/zhao0524/amazon-clone",
@@ -19,7 +19,7 @@ const projects = [
     title: "Motion exercise predictor",
     description:
       "Motion Exercise Predictor is a machine learning-powered app that detects your movements through a wearable motion sensor and identifies the exercise you’re performing in real time. It helps track workouts, monitor form, and provide insights for better performance.",
-    image: "/projects/fitness.png",
+    image: "projects/fitness.png",
     tags: ["Python", "pandas", "numpy"],
     demoUrl: "#",
     githubUrl: "https://github.com/zhao0524/fitness-machine-learning",
@@ -29,7 +29,7 @@ const projects = [
     title: "Eventfinder",
     description:
       "EventFinder is a web app that helps users discover local events in real time. It connects people to nearby concerts, festivals, and community activities based on their location and interests. With personalized filters, users can easily stay updated and never miss out on what’s happening around them.",
-    image: "/projects/eventfinder.png",
+    image: "projects/eventfinder.png",
     tags: ["Python", "html", "flask"],
     demoUrl: "#",
     githubUrl: "#",
