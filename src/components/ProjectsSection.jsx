@@ -1,11 +1,20 @@
-import { Description } from "@radix-ui/react-toast";
-import { ArrowRight, ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github } from "lucide-react";
 
 // in public make a folder called projects and add png images in them.
 // multiple of three will look better.
 const projects = [
   {
     id: 1,
+    title: "Spectra",
+    description:
+      "Spectra is a real-time behavioral classification and analytics platform that acts as a security layer for AI agents on the Solana blockchain. It monitors on-chain activity, detects anomalies like abnormal transaction velocity, and helps catch rogue agent behavior before it causes damage.",
+    image: `${import.meta.env.BASE_URL}projects/spectra.png`,
+    tags: ["Next.js", "TypeScript", "Solana", "Supabase"],
+    demoUrl: "https://devpost.com/software/s-e-n-t-r-a",
+    githubUrl: "https://github.com/boshyxd/Spectra",
+  },
+  {
+    id: 2,
     title: "Amazon-fullstack-clone",
     description:
       "An Amazon-clone web app that replicates core e-commerce features including product listings, shopping cart, and checkout functionality with a responsive user interface.",
@@ -15,7 +24,7 @@ const projects = [
     githubUrl: "https://github.com/zhao0524/amazon-clone",
   },
   {
-    id: 2,
+    id: 3,
     title: "Motion exercise predictor",
     description:
       "Motion Exercise Predictor is a machine learning-powered app that detects your movements through a wearable motion sensor and identifies the exercise you’re performing in real time. It helps track workouts, monitor form, and provide insights for better performance.",
@@ -25,7 +34,7 @@ const projects = [
     githubUrl: "https://github.com/zhao0524/fitness-machine-learning",
   },
   {
-    id: 3,
+    id: 4,
     title: "Eventfinder",
     description:
       "EventFinder is a web app that helps users discover local events in real time. It connects people to nearby concerts, festivals, and community activities based on their location and interests. With personalized filters, users can easily stay updated and never miss out on what’s happening around them.",
@@ -105,16 +114,6 @@ export const ProjectsSection = () => {
               </div>
             </div>
           ))}
-        </div>
-
-        <div className="text-center mt-12">
-          <a
-            className="cosmic-button w-fit flex items-center mx-auto gap-2"
-            href="https://github.com/zhao0524"
-            target="_blank"
-          >
-            Check my Github <ArrowRight size={16} />
-          </a>
         </div>
       </div>
     </section>

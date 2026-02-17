@@ -1,24 +1,41 @@
 import React, { useState } from "react";
+import {
+  SiAmazonwebservices,
+  SiCss3,
+  SiDocker,
+  SiExpress,
+  SiGit,
+  SiGraphql,
+  SiHtml5,
+  SiJavascript,
+  SiMongodb,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiPostgresql,
+  SiPostman,
+  SiPython,
+  SiReact,
+  SiTypescript,
+} from "react-icons/si";
 import { cn } from "@/lib/utils";
 
 const skills = [
-  { name: "HTML/CSS", level: 95, category: "frontend" },
-  { name: "javascript", level: 90, category: "frontend" },
-  { name: "React", level: 85, category: "frontend" },
-  { name: "Node.js", level: 80, category: "backend" },
-  { name: "Express.js", level: 80, category: "backend" },
-
-  { name: "MongoDB", level: 75, category: "database" },
-  { name: "Python", level: 70, category: "backend" },
-  { name: "SQL", level: 70, category: "database" },
-  { name: "Git", level: 80, category: "database" },
-  { name: "Docker", level: 70, category: "database" },
-
-  { name: "AWS", level: 60, category: "cloud" },
-  { name: "GraphQL", level: 65, category: "cloud" },
-  { name: "REST APIs", level: 75, category: "cloud" },
-  { name: "TypeScript", level: 70, category: "cloud" },
-  { name: "Next.js", level: 75, category: "cloud" },
+  { name: "HTML", category: "frontend", icon: <SiHtml5 /> },
+  { name: "CSS", category: "frontend", icon: <SiCss3 /> },
+  { name: "JavaScript", category: "frontend", icon: <SiJavascript /> },
+  { name: "React", category: "frontend", icon: <SiReact /> },
+  { name: "Node.js", category: "backend", icon: <SiNodedotjs /> },
+  { name: "Express.js", category: "backend", icon: <SiExpress /> },
+  { name: "MongoDB", category: "database", icon: <SiMongodb /> },
+  { name: "Python", category: "backend", icon: <SiPython /> },
+  { name: "SQL", category: "database", icon: <SiPostgresql /> },
+  { name: "Git", category: "database", icon: <SiGit /> },
+  { name: "Docker", category: "database", icon: <SiDocker /> },
+  { name: "AWS", category: "cloud", icon: <SiAmazonwebservices /> },
+  { name: "GraphQL", category: "cloud", icon: <SiGraphql /> },
+  { name: "REST APIs", category: "cloud", icon: <SiPostman /> },
+  { name: "TypeScript", category: "cloud", icon: <SiTypescript /> },
+  { name: "Next.js", category: "cloud", icon: <SiNextdotjs /> },
 ];
 
 const categories = ["all", "frontend", "backend", "database", "cloud"];
@@ -26,9 +43,9 @@ const categories = ["all", "frontend", "backend", "database", "cloud"];
 export const SkillsSection = () => {
   const [activeCategory, setActiveCategory] = useState("all");
 
-	const filteredSkills = skills.filter(
-  (skill) => activeCategory === "all" || skill.category === activeCategory
-);
+  const filteredSkills = skills.filter(
+    (skill) => activeCategory === "all" || skill.category === activeCategory
+  );
 
   return (
     <section id="skills" className="py-24 px-4 relative bg-secondary/30">
@@ -55,25 +72,14 @@ export const SkillsSection = () => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredSkills.map((skills, key) => (
+          {filteredSkills.map((skill, key) => (
             <div
               key={key}
               className="bg-card p-6 rounded-lg shadow-xs card-hover"
             >
-              <div className="text-left mb-4">
-                <h3 className="front-semibold text-lg">{skills.name}</h3>
-              </div>
-              <div className="w-full bg-secondary/50 h-2 rounded-full overflow-hidden">
-                <div
-                  className="bg-primary h-2 rounded-full origin-left animate-[grow_1.5s_ease-out"
-                  style={{ width: `${skills.level}%` }}
-                />
-              </div>
-
-              <div className="text-right mt-1">
-                <span className="text-sm text-muted-foreground">
-                  {skills.level}%
-                </span>
+              <div className="flex flex-col items-center gap-3">
+                <div className="text-primary text-3xl">{skill.icon}</div>
+                <h3 className="front-semibold text-lg">{skill.name}</h3>
               </div>
             </div>
           ))}
