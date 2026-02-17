@@ -4,6 +4,8 @@ import tailwindcss from '@tailwindcss/vite'
 import path from "path"
 
 // https://vite.dev/config/
+const isVercel = !!process.env.VERCEL;
+
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   resolve: {
@@ -11,5 +13,5 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src")
     }
   },
-  base: '/personal-react/'
+  base: isVercel ? "/" : "/personal-react/",
 })
