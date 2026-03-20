@@ -43,7 +43,7 @@ export const AboutSection = () => {
           </div>
 
           <div className="grid grid-cols-1 gap-6">
-            <div className="gradient-border p-6 card-hover">
+            <div className="liquid-glass liquid-glass-hover p-6">
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-full bg-primary/10">
                   {/* change the "code" tag to change the icons for these */}
@@ -62,7 +62,7 @@ export const AboutSection = () => {
               </div>
             </div>
 
-            <div className="gradient-border p-6 card-hover">
+            <div className="liquid-glass liquid-glass-hover p-6">
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-full bg-primary/10">
                   <MonitorCheck className="h-6 w-6 text-primary" />
@@ -80,7 +80,7 @@ export const AboutSection = () => {
               </div>
             </div>
 
-            <div className="gradient-border p-6 card-hover">
+            <div className="liquid-glass liquid-glass-hover p-6">
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-full bg-primary/10">
                   <Sparkles className="h-6 w-6 text-primary" />

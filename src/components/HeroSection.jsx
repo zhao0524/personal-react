@@ -1,6 +1,25 @@
 import { ArrowDown } from "lucide-react";
+import { useEffect, useState } from "react";
+
+const fullName = "David Zhao";
 
 export const HeroSection = () => {
+  const [displayed, setDisplayed] = useState("");
+  const [done, setDone] = useState(false);
+
+  useEffect(() => {
+    let i = 0;
+    const interval = setInterval(() => {
+      setDisplayed(fullName.slice(0, i + 1));
+      i++;
+      if (i === fullName.length) {
+        clearInterval(interval);
+        setDone(true);
+      }
+    }, 100);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section
       id="hero"
@@ -11,12 +30,8 @@ export const HeroSection = () => {
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
             <span className="opacity-0 animate-fade-in"> hi, I'm</span>
             <span className="text-primary opacity-0 animate-fade-in-delay-1">
-              {" "}
-              David
-            </span>
-            <span className="text-gradient ml-2 opacity-0 animate-fade-in-delay-2">
-              {" "}
-              Zhao
+              {" "}{displayed}
+              <span className={`inline-block w-[3px] h-[1em] bg-primary align-middle ml-1 ${done ? "opacity-0" : "animate-pulse"}`} />
             </span>
           </h1>
 
@@ -35,8 +50,8 @@ export const HeroSection = () => {
       </div>
 
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
-        <span className = "text-sm text-muted-foreground mb-2"> scroll </span>
-        <ArrowDown className = "h-5 w-5 text-primary" />
+        <span className="text-sm text-muted-foreground mb-2"> scroll </span>
+        <ArrowDown className="h-5 w-5 text-primary" />
       </div>
     </section>
   );
