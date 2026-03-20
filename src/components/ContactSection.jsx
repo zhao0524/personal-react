@@ -2,25 +2,42 @@ import { Instagram, Linkedin, Mail, MapPin, Phone, Send } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 import React, { useState } from "react";
+import emailjs from "@emailjs/browser";
 
 export const ContactSection = () => {
-	const { toast } = useToast();
-	const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handdleSubmit = (e) => {
-
+  const handleSubmit = (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
 
-		setIsSubmitting(true);
-
-    setTimeout(() => {
-      toast({
-        title: "Message Sent",
-        description: "Thank you for reaching out! I'll get back to you soon.",
+    emailjs
+      .sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        e.target,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      )
+      .then(() => {
+        toast({
+          title: "Message Sent!",
+          description: "Thank you for reaching out! I'll get back to you soon.",
+        });
+        e.target.reset();
+      })
+      .catch(() => {
+        toast({
+          title: "Something went wrong.",
+          description: "Failed to send your message. Please try again later.",
+          variant: "destructive",
+        });
+      })
+      .finally(() => {
+        setIsSubmitting(false);
       });
-			setIsSubmitting(false);
-    }, 1500);
   };
+
   return (
     <section id="contact" className="py-24 px-4 relative bg-secondary/30">
       <div className="container mx-auto max-w-5xl">
@@ -34,17 +51,14 @@ export const ContactSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div className="space-y-8">
-            <h3 className="text-2xl font-semibold mb-6">
-              {" "}
-              Contact Information
-            </h3>
+            <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
             <div className="space-y-6 justify-center">
-              <div className="flex items-satrt space-x-4">
+              <div className="flex items-start space-x-4">
                 <div className="p-3 rounded-full bg-primary/10">
                   <Mail className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-medium"> Email</h4>
+                  <h4 className="font-medium">Email</h4>
                   <a
                     href="mailto:davidzhao0524@gmail.com"
                     className="text-muted-foreground hover:text-primary transition-colors"
@@ -54,12 +68,12 @@ export const ContactSection = () => {
                 </div>
               </div>
 
-              <div className="flex items-satrt space-x-4">
+              <div className="flex items-start space-x-4">
                 <div className="p-3 rounded-full bg-primary/10">
                   <Phone className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-medium"> Phone</h4>
+                  <h4 className="font-medium">Phone</h4>
                   <a
                     href="tel:+16475616811"
                     className="text-muted-foreground hover:text-primary transition-colors"
@@ -69,31 +83,33 @@ export const ContactSection = () => {
                 </div>
               </div>
 
-              <div className="flex items-satrt space-x-4">
+              <div className="flex items-start space-x-4">
                 <div className="p-3 rounded-full bg-primary/10">
                   <MapPin className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-medium"> Location</h4>
-                  <a className="text-muted-foreground hover:text-primary transition-colors">
+                  <h4 className="font-medium">Location</h4>
+                  <span className="text-muted-foreground">
                     Toronto, ON, Canada
-                  </a>
+                  </span>
                 </div>
               </div>
             </div>
+
             <div className="py-8">
-              <h4> Connect With Me</h4>
+              <h4 className="mb-4">Connect With Me</h4>
               <div className="flex space-x-4 justify-center">
                 <a
                   target="_blank"
                   href="https://www.linkedin.com/in/david-zhao-ab8128327/"
+                  className="text-foreground/80 hover:text-primary transition-colors"
                 >
                   <Linkedin />
                 </a>
-
                 <a
                   href="https://www.instagram.com/david.kami01/"
                   target="_blank"
+                  className="text-foreground/80 hover:text-primary transition-colors"
                 >
                   <Instagram />
                 </a>
@@ -101,67 +117,54 @@ export const ContactSection = () => {
             </div>
           </div>
 
-          <div
-            className="liquid-glass p-8"
-            onSubmit={handdleSubmit}
-          >
-            <h3 className="text-2xl fond-semibold mb-6"> Send a Message</h3>
+          <div className="liquid-glass p-8">
+            <h3 className="text-2xl font-semibold mb-6">Send a Message</h3>
 
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium mb-2"
-                >
-                  {" "}
+                <label htmlFor="name" className="block text-sm font-medium mb-2">
                   Your Name
                 </label>
                 <input
                   type="text"
                   id="name"
-                  name="name"
+                  name="from_name"
                   required
                   className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary"
                   placeholder="John Doe"
-                ></input>
+                />
               </div>
 
               <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium mb-2"
-                >
-                  {" "}
+                <label htmlFor="email" className="block text-sm font-medium mb-2">
                   Your Email
                 </label>
                 <input
                   type="email"
                   id="email"
-                  name="email"
+                  name="from_email"
                   required
                   className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary"
-                  placeholder="John@gmail.com"
-                ></input>
+                  placeholder="john@gmail.com"
+                />
               </div>
 
               <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium mb-2"
-                >
-                  {" "}
+                <label htmlFor="message" className="block text-sm font-medium mb-2">
                   Your Message
                 </label>
                 <textarea
                   id="message"
                   name="message"
                   required
+                  rows={4}
                   className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary resize-none"
-                  placeholder="Hello,  I'd like to talk about..."
-                ></textarea>
+                  placeholder="Hello, I'd like to talk about..."
+                />
               </div>
+
               <button
-								disabled={isSubmitting}
+                disabled={isSubmitting}
                 type="submit"
                 className={cn(
                   "cosmic-button w-full flex items-center justify-center gap-2"
