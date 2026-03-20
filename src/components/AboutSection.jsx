@@ -1,4 +1,5 @@
 import { Briefcase, ChartLine, Code, MonitorCheck, Sparkle, Sparkles, User } from "lucide-react";
+import BorderGlow from './BorderGlow';
 
 export const AboutSection = () => {
   return (
@@ -12,7 +13,7 @@ export const AboutSection = () => {
             <h3 className="text-2xl font-semibold">Passionate developer</h3>
             <p className="text-muted-foreground">
               I see time as one of the most valuable resources and try to use it
-              purposefully every day. Whether I’m working on a technical
+              purposefully every day. Whether I'm working on a technical
               project, exploring a new idea, or simply reflecting, I aim to stay
               present and focused. To me, how we spend our time shapes not just
               what we achieve, but who we become.
@@ -43,62 +44,68 @@ export const AboutSection = () => {
           </div>
 
           <div className="grid grid-cols-1 gap-6">
-            <div className="liquid-glass liquid-glass-hover p-6">
-              <div className="flex items-start gap-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  {/* change the "code" tag to change the icons for these */}
-                  <ChartLine className="h-6 w-6 text-primary" />
-                </div>
-                <div className="text-left">
-                  <h4 className="font-semibold text-lg">Data analytcis</h4>
-                  <p className="text-mute-foreground">
-                    {" "}
-                    I specialize in analyzing complex data to uncover trends,
-                    patterns, and insights. Using tools like SQL, Python, and
-                    visualization libraries, I turn raw data into clear,
-                    actionable information.{" "}
-                  </p>
+            <BorderGlow edgeSensitivity={30} glowColor="40 80 80" backgroundColor="rgba(255, 255, 255, 0.05)" borderRadius={28} glowRadius={40} glowIntensity={1} coneSpread={25} animated={false} fillOpacity={0} colors={['#c084fc', '#f472b6', '#38bdf8']}>
+              <div className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 rounded-full bg-primary/10">
+                    {/* change the "code" tag to change the icons for these */}
+                    <ChartLine className="h-6 w-6 text-primary" />
+                  </div>
+                  <div className="text-left">
+                    <h4 className="font-semibold text-lg">Data analytcis</h4>
+                    <p className="text-mute-foreground">
+                      {" "}
+                      I specialize in analyzing complex data to uncover trends,
+                      patterns, and insights. Using tools like SQL, Python, and
+                      visualization libraries, I turn raw data into clear,
+                      actionable information.{" "}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
+            </BorderGlow>
 
-            <div className="liquid-glass liquid-glass-hover p-6">
-              <div className="flex items-start gap-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <MonitorCheck className="h-6 w-6 text-primary" />
-                </div>
-                <div className="text-left">
-                  <h4 className="font-semibold text-lg">Machine Learning</h4>
-                  <p className="text-mute-foreground">
-                    {" "}
-                    I build machine learning models that learn from data and
-                    solve real-world problems efficiently. I enjoy working with
-                    algorithms like neural networks and decision trees to create
-                    smart, adaptive systems.{" "}
-                  </p>
+            <BorderGlow edgeSensitivity={30} glowColor="40 80 80" backgroundColor="rgba(255, 255, 255, 0.05)" borderRadius={28} glowRadius={40} glowIntensity={1} coneSpread={25} animated={false} fillOpacity={0} colors={['#c084fc', '#f472b6', '#38bdf8']}>
+              <div className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 rounded-full bg-primary/10">
+                    <MonitorCheck className="h-6 w-6 text-primary" />
+                  </div>
+                  <div className="text-left">
+                    <h4 className="font-semibold text-lg">Machine Learning</h4>
+                    <p className="text-mute-foreground">
+                      {" "}
+                      I build machine learning models that learn from data and
+                      solve real-world problems efficiently. I enjoy working with
+                      algorithms like neural networks and decision trees to create
+                      smart, adaptive systems.{" "}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
+            </BorderGlow>
 
-            <div className="liquid-glass liquid-glass-hover p-6">
-              <div className="flex items-start gap-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <Sparkles className="h-6 w-6 text-primary" />
-                </div>
-                <div className="text-left">
-                  <h4 className="font-semibold text-lg">
-                    Artificial Intelligence
-                  </h4>
-                  <p className="text-mute-foreground">
-                    {" "}
-                    I’m passionate about AI and its ability to mimic human
-                    reasoning and perception. From natural language processing
-                    to computer vision, I explore AI’s potential to create
-                    meaningful and ethical solutions.{" "}
-                  </p>
+            <BorderGlow edgeSensitivity={30} glowColor="40 80 80" backgroundColor="rgba(255, 255, 255, 0.05)" borderRadius={28} glowRadius={40} glowIntensity={1} coneSpread={25} animated={false} fillOpacity={0} colors={['#c084fc', '#f472b6', '#38bdf8']}>
+              <div className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 rounded-full bg-primary/10">
+                    <Sparkles className="h-6 w-6 text-primary" />
+                  </div>
+                  <div className="text-left">
+                    <h4 className="font-semibold text-lg">
+                      Artificial Intelligence
+                    </h4>
+                    <p className="text-mute-foreground">
+                      {" "}
+                      I'm passionate about AI and its ability to mimic human
+                      reasoning and perception. From natural language processing
+                      to computer vision, I explore AI's potential to create
+                      meaningful and ethical solutions.{" "}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
+            </BorderGlow>
           </div>
         </div>
       </div>

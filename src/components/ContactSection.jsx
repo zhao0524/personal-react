@@ -2,6 +2,7 @@ import { Instagram, Linkedin, Mail, MapPin, Phone, Send } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 import React, { useState } from "react";
+import BorderGlow from './BorderGlow';
 
 export const ContactSection = () => {
   const { toast } = useToast();
@@ -122,7 +123,8 @@ export const ContactSection = () => {
             </div>
           </div>
 
-          <div className="liquid-glass p-8">
+          <BorderGlow edgeSensitivity={30} glowColor="40 80 80" backgroundColor="rgba(255, 255, 255, 0.05)" borderRadius={28} glowRadius={40} glowIntensity={1} coneSpread={25} animated={false} fillOpacity={0} colors={['#c084fc', '#f472b6', '#38bdf8']}>
+          <div className="p-8">
             <h3 className="text-2xl font-semibold mb-6">Send a Message</h3>
 
             <form className="space-y-6" onSubmit={handleSubmit}>
@@ -180,6 +182,7 @@ export const ContactSection = () => {
               </button>
             </form>
           </div>
+          </BorderGlow>
         </div>
       </div>
     </section>

@@ -1,5 +1,6 @@
 import { ExternalLink, Github } from "lucide-react";
 import { SiDevpost } from "react-icons/si";
+import BorderGlow from './BorderGlow';
 
 // in public make a folder called projects and add png images in them.
 // multiple of three will look better.
@@ -76,10 +77,7 @@ export const ProjectsSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project) => (
-            <div
-              key={project.id}
-              className="group liquid-glass liquid-glass-hover flex flex-col"
-            >
+            <BorderGlow key={project.id} className="group" edgeSensitivity={30} glowColor="40 80 80" backgroundColor="rgba(255, 255, 255, 0.05)" borderRadius={28} glowRadius={40} glowIntensity={1} coneSpread={25} animated={false} fillOpacity={0} colors={['#c084fc', '#f472b6', '#38bdf8']}>
               <div className="h-48 overflow-hidden">
                 <img
                   src={project.image}
@@ -137,7 +135,7 @@ export const ProjectsSection = () => {
                   )}
                 </div>
               </div>
-            </div>
+            </BorderGlow>
           ))}
         </div>
       </div>

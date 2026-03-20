@@ -18,6 +18,7 @@ import {
   SiTypescript,
 } from "react-icons/si";
 import { cn } from "@/lib/utils";
+import BorderGlow from './BorderGlow';
 
 const skills = [
   { name: "HTML", category: "frontend", icon: <SiHtml5 /> },
@@ -73,15 +74,14 @@ export const SkillsSection = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredSkills.map((skill, key) => (
-            <div
-              key={key}
-              className="liquid-glass liquid-glass-hover p-6"
-            >
-              <div className="flex flex-col items-center gap-3">
-                <div className="text-primary text-3xl">{skill.icon}</div>
-                <h3 className="front-semibold text-lg">{skill.name}</h3>
+            <BorderGlow key={key} edgeSensitivity={30} glowColor="40 80 80" backgroundColor="rgba(255, 255, 255, 0.05)" borderRadius={28} glowRadius={40} glowIntensity={1} coneSpread={25} animated={false} fillOpacity={0} colors={['#c084fc', '#f472b6', '#38bdf8']}>
+              <div className="p-6">
+                <div className="flex flex-col items-center gap-3">
+                  <div className="text-primary text-3xl">{skill.icon}</div>
+                  <h3 className="front-semibold text-lg">{skill.name}</h3>
+                </div>
               </div>
-            </div>
+            </BorderGlow>
           ))}
         </div>
       </div>
