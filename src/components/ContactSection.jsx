@@ -2,40 +2,45 @@ import { Instagram, Linkedin, Mail, MapPin, Phone, Send } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 import React, { useState } from "react";
-import emailjs from "@emailjs/browser";
 
 export const ContactSection = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    emailjs
-      .sendForm(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        e.target,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-      )
-      .then(() => {
-        toast({
-          title: "Message Sent!",
-          description: "Thank you for reaching out! I'll get back to you soon.",
-        });
-        e.target.reset();
-      })
-      .catch(() => {
-        toast({
-          title: "Something went wrong.",
-          description: "Failed to send your message. Please try again later.",
-          variant: "destructive",
-        });
-      })
-      .finally(() => {
-        setIsSubmitting(false);
+    const form = e.target;
+    const data = {
+      from_name: form.from_name.value,
+      from_email: form.from_email.value,
+      message: form.message.value,
+    };
+
+    try {
+      const res = await fetch("/api/send", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
       });
+
+      if (!res.ok) throw new Error("Failed");
+
+      toast({
+        title: "Message Sent!",
+        description: "Thank you for reaching out! I'll get back to you soon.",
+      });
+      form.reset();
+    } catch {
+      toast({
+        title: "Something went wrong.",
+        description: "Failed to send your message. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
