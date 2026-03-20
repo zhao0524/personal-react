@@ -1,23 +1,38 @@
 import { ExternalLink, Github } from "lucide-react";
+import { SiDevpost } from "react-icons/si";
 
 // in public make a folder called projects and add png images in them.
 // multiple of three will look better.
 const projects = [
   {
+    id: 5,
+    title: "CareSync",
+    description:
+      "An AI-powered care coordination platform connecting PSWs, family members, and coordinators through automated shift briefings, medication risk checks, and daily care summaries.",
+    image: `${import.meta.env.BASE_URL}projects/CareSync.jpg`,
+    tags: ["React", "Node.js", "AI Agents"],
+    demoUrl: "https://frontend-three-iota-42.vercel.app/",
+    githubUrl: "https://github.com/zhao0524/CareSync",
+    devpostUrl: "https://devpost.com/software/caresync-kj2ch4",
+    award: "🏆 Winner of HackCanada",
+  },
+  {
     id: 1,
     title: "Spectra",
     description:
-      "Spectra is a real-time behavioral classification and analytics platform that acts as a security layer for AI agents on the Solana blockchain. It monitors on-chain activity, detects anomalies like abnormal transaction velocity, and helps catch rogue agent behavior before it causes damage.",
+      "A real-time behavioral analytics platform acting as a security layer for AI agents on Solana. Monitors on-chain activity and detects anomalies like abnormal transaction velocity.",
     image: `${import.meta.env.BASE_URL}projects/spectra.png`,
     tags: ["Next.js", "TypeScript", "Solana", "Supabase"],
-    demoUrl: "https://devpost.com/software/s-e-n-t-r-a",
+    demoUrl: "https://spectra-prod-gamma.vercel.app/",
     githubUrl: "https://github.com/boshyxd/Spectra",
+    devpostUrl: "https://devpost.com/software/s-e-n-t-r-a",
+    award: "🏆 Winner of uOttaHack",
   },
   {
     id: 2,
-    title: "Amazon-fullstack-clone",
+    title: "Amazon Fullstack Clone",
     description:
-      "An Amazon-clone web app that replicates core e-commerce features including product listings, shopping cart, and checkout functionality with a responsive user interface.",
+      "A full-stack e-commerce app replicating core Amazon features including product listings, shopping cart, and checkout with a responsive user interface.",
     image: `${import.meta.env.BASE_URL}projects/amazon-clone-frontpage.png`,
     tags: ["React", "Firebase", "product-API"],
     demoUrl: "#",
@@ -25,9 +40,9 @@ const projects = [
   },
   {
     id: 3,
-    title: "Motion exercise predictor",
+    title: "Motion Exercise Predictor",
     description:
-      "Motion Exercise Predictor is a machine learning-powered app that detects your movements through a wearable motion sensor and identifies the exercise you’re performing in real time. It helps track workouts, monitor form, and provide insights for better performance.",
+      "A machine learning app that detects movements through a wearable motion sensor and identifies exercises in real time to track workouts and monitor form.",
     image: `${import.meta.env.BASE_URL}projects/fitness.png`,
     tags: ["Python", "pandas", "numpy"],
     demoUrl: "#",
@@ -35,11 +50,11 @@ const projects = [
   },
   {
     id: 4,
-    title: "Eventfinder",
+    title: "EventFinder",
     description:
-      "EventFinder is a web app that helps users discover local events in real time. It connects people to nearby concerts, festivals, and community activities based on their location and interests. With personalized filters, users can easily stay updated and never miss out on what’s happening around them.",
+      "A web app that helps users discover local events in real time, connecting people to nearby concerts, festivals, and community activities based on location and interests.",
     image: `${import.meta.env.BASE_URL}projects/eventfinder.png`,
-    tags: ["Python", "html", "flask"],
+    tags: ["Python", "HTML", "Flask"],
     demoUrl: "#",
     githubUrl: "#",
   },
@@ -63,9 +78,9 @@ export const ProjectsSection = () => {
           {projects.map((project) => (
             <div
               key={project.id}
-              className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
+              className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover flex flex-col"
             >
-              <div className="h-48 overfow-hidden">
+              <div className="h-48 overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
@@ -73,7 +88,9 @@ export const ProjectsSection = () => {
                 />
               </div>
 
-              <div className="p-6">
+              <div className="p-6 flex flex-col flex-1">
+                <h3 className="text-xl font-semibold mb-3">{project.title}</h3>
+
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag) => (
                     <span
@@ -83,33 +100,41 @@ export const ProjectsSection = () => {
                       {tag}
                     </span>
                   ))}
+                  {project.award && (
+                    <span className="text-xs font-medium px-2 py-1 rounded-full bg-yellow-400/20 text-yellow-500 border border-yellow-400/30">
+                      {project.award}
+                    </span>
+                  )}
                 </div>
 
-                <h3 className="text-xl font-semibold mb-2">
-                  {" "}
-                  {project.title}{" "}
-                </h3>
-                <p className="text-muted-foreground text-sm mb-4">
-                  {" "}
-                  {project.description}{" "}
+                <p className="text-muted-foreground text-sm flex-1">
+                  {project.description}
                 </p>
-                <div className="flex justify-between items-center">
-                  <div className="flex space-x-3">
+
+                <div className="flex space-x-3 mt-4">
+                  <a
+                    href={project.demoUrl}
+                    target="_blank"
+                    className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                  >
+                    <ExternalLink size={20} />
+                  </a>
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                  >
+                    <Github size={20} />
+                  </a>
+                  {project.devpostUrl && (
                     <a
-                      href={project.demoUrl}
+                      href={project.devpostUrl}
                       target="_blank"
                       className="text-foreground/80 hover:text-primary transition-colors duration-300"
                     >
-                      <ExternalLink size={20} />
+                      <SiDevpost size={20} />
                     </a>
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                    >
-                      <Github size={20} />
-                    </a>
-                  </div>
+                  )}
                 </div>
               </div>
             </div>
