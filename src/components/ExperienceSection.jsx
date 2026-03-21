@@ -1,12 +1,11 @@
 import OrbitImages from './OrbitImages';
 
 const images = [
-  "https://picsum.photos/300/300?grayscale&random=1",
-  "https://picsum.photos/300/300?grayscale&random=2",
-  "https://picsum.photos/300/300?grayscale&random=3",
-  "https://picsum.photos/300/300?grayscale&random=4",
-  "https://picsum.photos/300/300?grayscale&random=5",
-  "https://picsum.photos/300/300?grayscale&random=6",
+  `${import.meta.env.BASE_URL}wilfrid_laurier_university_logo.jpg`,
+  `${import.meta.env.BASE_URL}wilfrid_laurier_university_students_union_logo.jpg`,
+  `${import.meta.env.BASE_URL}emergconnect_logo.jpg`,
+  `${import.meta.env.BASE_URL}lazaridissupplychainassociation_logo.jpg`,
+  `${import.meta.env.BASE_URL}varsity_tutors_logo.jpg`,
 ];
 
 export const ExperienceSection = () => {
