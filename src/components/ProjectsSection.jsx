@@ -30,6 +30,16 @@ const projects = [
     award: "🏆 Winner of uOttaHack",
   },
   {
+    id: 6,
+    title: "Web Editor",
+    description:
+      "A Chrome extension that lets users describe UI changes in plain English and applies them directly to any webpage in real time — no DevTools required.",
+    image: `${import.meta.env.BASE_URL}projects/web_editor.png`,
+    tags: ["Chrome Extension", "JavaScript", "AI"],
+    demoUrl: "#",
+    githubUrl: "https://github.com/zhao0524/web-editor-extension",
+  },
+  {
     id: 2,
     title: "Amazon Fullstack Clone",
     description:

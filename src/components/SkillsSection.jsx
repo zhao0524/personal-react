@@ -16,30 +16,72 @@ import {
   SiPython,
   SiReact,
   SiTypescript,
+  SiScala,
+  SiTensorflow,
+  SiPytorch,
+  SiFastapi,
+  SiPandas,
+  SiNumpy,
+  SiKubernetes,
 } from "react-icons/si";
+import {
+  TbMathFunction,
+  TbChartBar,
+  TbTable,
+  TbBrandPython,
+  TbCode,
+  TbLetterC,
+  TbLetterR,
+  TbBrandSpeedtest,
+} from "react-icons/tb";
 import { cn } from "@/lib/utils";
 import BorderGlow from './BorderGlow';
 
 const skills = [
+  // Frontend
   { name: "HTML", category: "frontend", icon: <SiHtml5 /> },
   { name: "CSS", category: "frontend", icon: <SiCss3 /> },
   { name: "JavaScript", category: "frontend", icon: <SiJavascript /> },
   { name: "React", category: "frontend", icon: <SiReact /> },
+  // Backend
   { name: "Node.js", category: "backend", icon: <SiNodedotjs /> },
   { name: "Express.js", category: "backend", icon: <SiExpress /> },
-  { name: "MongoDB", category: "database", icon: <SiMongodb /> },
   { name: "Python", category: "backend", icon: <SiPython /> },
-  { name: "SQL", category: "database", icon: <SiPostgresql /> },
+  // Database
+  { name: "MongoDB", category: "database", icon: <SiMongodb /> },
+  { name: "SQL (Postgres)", category: "database", icon: <SiPostgresql /> },
   { name: "Git", category: "database", icon: <SiGit /> },
   { name: "Docker", category: "database", icon: <SiDocker /> },
+  // Cloud
   { name: "AWS", category: "cloud", icon: <SiAmazonwebservices /> },
   { name: "GraphQL", category: "cloud", icon: <SiGraphql /> },
   { name: "REST APIs", category: "cloud", icon: <SiPostman /> },
   { name: "TypeScript", category: "cloud", icon: <SiTypescript /> },
   { name: "Next.js", category: "cloud", icon: <SiNextdotjs /> },
+  // Languages
+  { name: "Java", category: "backend", icon: <TbCode /> },
+  { name: "C/C++", category: "backend", icon: <TbLetterC /> },
+  { name: "Julia", category: "backend", icon: <TbCode /> },
+  { name: "R", category: "backend", icon: <TbLetterR /> },
+  { name: "Scala", category: "backend", icon: <SiScala /> },
+  { name: "Matlab", category: "backend", icon: <TbMathFunction /> },
+  // Frameworks
+  { name: "TensorFlow", category: "backend", icon: <SiTensorflow /> },
+  { name: "PyTorch", category: "backend", icon: <SiPytorch /> },
+  { name: "Scikit-learn", category: "backend", icon: <TbBrandPython /> },
+  { name: "Kubeflow", category: "cloud", icon: <SiKubernetes /> },
+  { name: "FastAPI", category: "backend", icon: <SiFastapi /> },
+  { name: "MLflow", category: "backend", icon: <TbBrandSpeedtest /> },
+  // Analytics
+  { name: "pandas", category: "analytics", icon: <SiPandas /> },
+  { name: "NumPy", category: "analytics", icon: <SiNumpy /> },
+  { name: "Matplotlib", category: "analytics", icon: <TbChartBar /> },
+  { name: "ggplot2", category: "analytics", icon: <TbChartBar /> },
+  { name: "data.table", category: "analytics", icon: <TbTable /> },
+  { name: "Polars", category: "analytics", icon: <TbTable /> },
 ];
 
-const categories = ["all", "frontend", "backend", "database", "cloud"];
+const categories = ["all", "frontend", "backend", "database", "cloud", "analytics"];
 
 export const SkillsSection = () => {
   const [activeCategory, setActiveCategory] = useState("all");
