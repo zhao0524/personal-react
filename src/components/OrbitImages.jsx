@@ -71,7 +71,7 @@ function generateWavePath(cx, cy, w, amplitude, waves) {
   return pts.join(' ') + ' Z';
 }
 
-function OrbitItem({ item, index, totalItems, path, itemSize, rotation, progress, fill }) {
+function OrbitItem({ item, index, totalItems, path, itemSize, rotation, progress, fill, onClick }) {
   const itemOffset = fill ? (index / totalItems) * 100 : 0;
 
   const offsetDistance = useTransform(progress, (p) => {
@@ -89,7 +89,9 @@ function OrbitItem({ item, index, totalItems, path, itemSize, rotation, progress
         offsetRotate: '0deg',
         offsetAnchor: 'center center',
         offsetDistance,
+        cursor: 'pointer',
       }}
+      onClick={onClick}
     >
       <div style={{ transform: `rotate(${-rotation}deg)` }}>{item}</div>
     </motion.div>
@@ -122,6 +124,7 @@ export default function OrbitImages({
   paused = false,
   centerContent,
   responsive = false,
+  onImageClick,
 }) {
   const containerRef = useRef(null);
   const [scale, setScale] = useState(1);
@@ -191,6 +194,7 @@ export default function OrbitImages({
       alt={`${altPrefix} ${index + 1}`}
       draggable={false}
       className="orbit-image"
+      onClick={() => onImageClick && onImageClick(index)}
     />
   ));
 
