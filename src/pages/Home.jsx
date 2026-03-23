@@ -8,6 +8,7 @@ import { SkillsSection } from "../components/SkillsSection";
 import { ProjectsSection } from "../components/ProjectsSection";
 import { ContactSection } from "../components/ContactSection";
 import { Footer } from "../components/Footer";
+import { ScrollReveal } from "../components/ScrollReveal";
 
 export const Home = () => {
   return (
@@ -23,15 +24,15 @@ export const Home = () => {
       {/* main content */}
       <main>
         <HeroSection />
-        <AboutSection />
-        <ExperienceSection />
-        <SkillsSection />
-        <ProjectsSection />
-        <ContactSection />
+        <ScrollReveal><AboutSection /></ScrollReveal>
+        <ScrollReveal delay={100}><ExperienceSection /></ScrollReveal>
+        <ScrollReveal delay={100}><SkillsSection /></ScrollReveal>
+        <ScrollReveal delay={100}><ProjectsSection /></ScrollReveal>
+        <ScrollReveal delay={100}><ContactSection /></ScrollReveal>
       </main>
 
       {/* Footer */}
-      <Footer/>
+      <ScrollReveal><Footer /></ScrollReveal>
     </div>
   );
 };
