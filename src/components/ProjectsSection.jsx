@@ -6,6 +6,41 @@ import BorderGlow from './BorderGlow';
 // multiple of three will look better.
 const projects = [
   {
+    id: 10,
+    title: "A.U.R.A",
+    description:
+      "An AI-powered platform that transforms 2D floor plans into fully interactive 3D environments you can walk through in the browser. Analyzes the layout, intelligently furnishes the space based on your prompt, and generates a realistic, editable scene for planning and visualization.",
+    image: `${import.meta.env.BASE_URL}projects/AURA.png`,
+    tags: ["Three.js", "AI", "3D"],
+    demoUrl: "https://aura-bay-nu.vercel.app/",
+    githubUrl: "https://github.com/zhao0524/FridgeChef",
+    devpostUrl: "https://devpost.com/software/a-u-r-a-architectural-understanding-rendering-agent",
+    award: "🏆 Winner of Bear Hack",
+  },
+  {
+    id: 8,
+    title: "Spar",
+    description:
+      "An AI-powered mock interview platform where candidates debug real codebases while thinking out loud to a live voice AI interviewer. Evaluates problem-solving, communication, and coding behavior to generate a hiring-style report.",
+    image: `${import.meta.env.BASE_URL}projects/Spar.png`,
+    tags: ["React", "Voice AI", "AI"],
+    demoUrl: "#",
+    githubUrl: "https://github.com/RohanGottipati/Spar/tree/main",
+    devpostUrl: "https://devpost.com/software/spar-9getb3",
+    award: "🏆 Winner of Ignition Hack",
+  },
+  {
+    id: 7,
+    title: "GreenLens AI",
+    description:
+      "Leverages machine learning to analyze complex data and deliver real-time, actionable insights through intuitive reports.",
+    image: `${import.meta.env.BASE_URL}projects/greenlens.png`,
+    tags: ["Machine Learning", "Data Analysis", "AI"],
+    demoUrl: "https://greenlens-ai-pi.vercel.app/",
+    githubUrl: "https://github.com/zhao0524/greenlens-ai",
+    award: "🏆 Winner of Data Mind Challenge",
+  },
+  {
     id: 5,
     title: "CareSync",
     description:
@@ -28,6 +63,17 @@ const projects = [
     githubUrl: "https://github.com/boshyxd/Spectra",
     devpostUrl: "https://devpost.com/software/s-e-n-t-r-a",
     award: "🏆 Winner of uOttaHack",
+  },
+  {
+    id: 9,
+    title: "FridgeChef",
+    description:
+      "An AI-powered web app that turns a photo of your fridge into personalized recipes based on your ingredients and available cooking time. Detects what you have, adapts to your schedule, and sends recipes and grocery lists to reduce food waste.",
+    image: `${import.meta.env.BASE_URL}projects/Fridgechef.png`,
+    tags: ["React", "AI", "Computer Vision"],
+    demoUrl: "https://fridgechef-1.vercel.app/",
+    githubUrl: "https://github.com/zhao0524/FridgeChef",
+    devpostUrl: "https://devpost.com/software/food-for-thought-wnfz1b",
   },
   {
     id: 6,
