@@ -26,8 +26,8 @@ export const Home = () => {
         <HeroSection />
         <ScrollReveal><AboutSection /></ScrollReveal>
         <ScrollReveal delay={100}><ExperienceSection /></ScrollReveal>
-        <ScrollReveal delay={100}><SkillsSection /></ScrollReveal>
         <ScrollReveal delay={100}><ProjectsSection /></ScrollReveal>
+        <ScrollReveal delay={100}><SkillsSection /></ScrollReveal>
         <ScrollReveal delay={100}><ContactSection /></ScrollReveal>
       </main>
 
