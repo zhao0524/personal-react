@@ -35,7 +35,7 @@ export const AboutSection = () => {
 
               <a
                 target="_blank"
-                href="David_swe.pdf"
+                href={`${import.meta.env.BASE_URL}David_swe.pdf`}
                 className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transitions-colors duration-300"
               >
                 Resume
