@@ -25,7 +25,7 @@ export const ScrollReveal = ({ children, delay = 0, className = '' }) => {
       style={{
         opacity: visible ? 1 : 0,
         transform: visible ? 'translateY(0)' : 'translateY(32px)',
-        transition: `opacity 1.1s ease ${delay}ms, transform 1.1s ease ${delay}ms`,
+        transition: `opacity 0.45s ease ${delay}ms, transform 0.45s ease ${delay}ms`,
       }}
     >
       {children}
