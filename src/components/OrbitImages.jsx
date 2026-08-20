@@ -252,7 +252,7 @@ export default function OrbitImages({
                   </feMerge>
                 </filter>
               </defs>
-              <path d={path} fill="none" stroke={pathColor} strokeWidth={pathWidth / scale} filter="url(#orbit-glow)" />
+              <path d={path} fill="none" style={{ stroke: pathColor }} strokeWidth={pathWidth / scale} filter="url(#orbit-glow)" />
             </svg>
           )}
 

@@ -3,6 +3,15 @@ import OrbitImages from './OrbitImages';
 import BorderGlow from './BorderGlow';
 
 const companies = [
+  { image: `${import.meta.env.BASE_URL}doubl_logo.jpg`, name: "DOUBL", position: "Software Engineer", bullets: [
+    "Separated the local development and production databases to create a safer and more reliable development workflow.",
+    "Developed the full-stack, client-facing website using React, FastAPI, and PostgreSQL.",
+    "Improved the website's SEO through optimized page structure, metadata, and content.",
+    "Managed and maintained the database, including updating schemas and ensuring data accuracy.",
+    "Built web-scraping workflows to collect product information from partner websites and update the database.",
+    "Fixed website issues and implemented new features based on business and user needs.",
+    "Collaborated with the development team through stand-ups, sprint planning, testing, and code reviews.",
+  ] },
   { image: `${import.meta.env.BASE_URL}wilfrid_laurier_university_logo.jpg`, name: "Wilfrid Laurier University", position: "Research Assistant", bullets: [
     "Designed and developed machine learning models to analyze financial data, identifying patterns for prediction and decision-making.",
     "Conducted exploratory data analysis on market datasets to uncover trends, anomalies, and potential trading signals.",
@@ -97,7 +106,7 @@ export const ExperienceSection = () => {
               direction="normal"
               fill
               showPath
-              pathColor="rgba(230, 230, 235, 0.7)"
+              pathColor="var(--orbit-path-color)"
               pathWidth={2}
               paused={false}
               onImageClick={handleImageClick}
