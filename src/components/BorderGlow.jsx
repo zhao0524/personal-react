@@ -63,6 +63,8 @@ const BorderGlow = ({
   fillOpacity = 0.5,
 }) => {
   const cardRef = useRef(null);
+  const frameRef = useRef(null);
+  const lastPointerRef = useRef({ x: 0, y: 0 });
 
   const getCenterOfElement = useCallback((el) => {
     const { width, height } = el.getBoundingClientRect();
@@ -91,20 +93,33 @@ const BorderGlow = ({
     return degrees;
   }, [getCenterOfElement]);
 
+  // Coalesce pointer moves to at most one style update per animation frame to
+  // avoid layout thrash from getBoundingClientRect + style writes on every event.
   const handlePointerMove = useCallback((e) => {
-    const card = cardRef.current;
-    if (!card) return;
+    lastPointerRef.current = { x: e.clientX, y: e.clientY };
+    if (frameRef.current != null) return;
+    frameRef.current = requestAnimationFrame(() => {
+      frameRef.current = null;
+      const card = cardRef.current;
+      if (!card) return;
 
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+      const rect = card.getBoundingClientRect();
+      const x = lastPointerRef.current.x - rect.left;
+      const y = lastPointerRef.current.y - rect.top;
 
-    const edge = getEdgeProximity(card, x, y);
-    const angle = getCursorAngle(card, x, y);
+      const edge = getEdgeProximity(card, x, y);
+      const angle = getCursorAngle(card, x, y);
 
-    card.style.setProperty('--edge-proximity', `${(edge * 100).toFixed(3)}`);
-    card.style.setProperty('--cursor-angle', `${angle.toFixed(3)}deg`);
+      card.style.setProperty('--edge-proximity', `${(edge * 100).toFixed(3)}`);
+      card.style.setProperty('--cursor-angle', `${angle.toFixed(3)}deg`);
+    });
   }, [getEdgeProximity, getCursorAngle]);
+
+  useEffect(() => {
+    return () => {
+      if (frameRef.current != null) cancelAnimationFrame(frameRef.current);
+    };
+  }, []);
 
   useEffect(() => {
     if (!animated || !cardRef.current) return;

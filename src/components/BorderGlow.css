@@ -139,3 +139,22 @@
   z-index: 1;
   border-radius: inherit;
 }
+
+/* Light mode: the three glow layers are tuned for dark backgrounds. In
+   particular ::before fills the interior with the near-black --card-mask, which
+   shows through the translucent card and turns the whole box black on hover.
+   So in light mode hide ALL of them and instead change only the card's real
+   border color on hover. Dark mode is completely unchanged. */
+html:not(.dark) .border-glow-card::before,
+html:not(.dark) .border-glow-card::after,
+html:not(.dark) .border-glow-card > .edge-light {
+  display: none;
+}
+
+html:not(.dark) .border-glow-card {
+  transition: border-color 0.25s ease-out;
+}
+
+html:not(.dark) .border-glow-card:hover {
+  border-color: hsl(var(--primary));
+}

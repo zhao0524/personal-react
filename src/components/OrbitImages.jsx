@@ -128,6 +128,7 @@ export default function OrbitImages({
 }) {
   const containerRef = useRef(null);
   const [scale, setScale] = useState(1);
+  const [inView, setInView] = useState(true);
 
   const designCenterX = baseWidth / 2;
   const designCenterY = baseWidth / 2;
@@ -173,8 +174,20 @@ export default function OrbitImages({
 
   const progress = useMotionValue(0);
 
+  // Pause the orbit animation while the container is scrolled off-screen so it
+  // doesn't repaint every frame when the user can't see it.
   useEffect(() => {
-    if (paused) return;
+    if (!containerRef.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setInView(entry.isIntersecting),
+      { threshold: 0 }
+    );
+    observer.observe(containerRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (paused || !inView) return;
     const controls = animate(progress, direction === 'reverse' ? -100 : 100, {
       duration,
       ease: easing,
@@ -182,7 +195,7 @@ export default function OrbitImages({
       repeatType: 'loop',
     });
     return () => controls.stop();
-  }, [progress, duration, easing, direction, paused]);
+  }, [progress, duration, easing, direction, paused, inView]);
 
   const containerWidth = responsive ? '100%' : (typeof width === 'number' ? width : '100%');
   const containerHeight = responsive ? 'auto' : (typeof height === 'number' ? height : (typeof width === 'number' ? width : 'auto'));
